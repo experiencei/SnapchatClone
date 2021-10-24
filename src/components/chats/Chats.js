@@ -1,6 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import { ChatBubble, Search } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
+import Chat from '../chat/Chat';
 import { db } from '../firebase/firebase';
 import "./Chats.css";
 
@@ -34,7 +35,7 @@ function Chats() {
         </div>
               <div className="chats__posts">
                  {posts.map( ({ id , data: { profilePic , username , timestamp , imageUrl , read}}) => (
-                         <Chat 
+                         <Chat
                             key={id}
                             id={id}
                             username={username}
