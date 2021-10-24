@@ -12,6 +12,9 @@ function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
     const open = () => {
         if(!read){
             dispatch(selectImage(imageUrl));
+            db.collection("posts").doc(id).set({
+                read : true,
+            } , {merge : true});
         }
     }
 
