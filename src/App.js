@@ -3,6 +3,7 @@ import { appSlice } from './features/appSlice';
 import './App.css';
 import { BrowserRouter as Router , Switch , Link , Route } from 'react-router-dom';
 import WebcamCapture from './components/webcamcapture/WebcamCapture';
+import Preview from './components/preview/Preview';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
          <Switch>
        <Route  exact path="/">
            <WebcamCapture />
+       </Route>
+       <Route   path="/preview">
+           <Preview />
        </Route>
        </Switch>
        </div>
