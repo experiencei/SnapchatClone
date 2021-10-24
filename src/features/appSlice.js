@@ -3,25 +3,28 @@ import { createSlice } from '@reduxjs/toolkit';
 export const appSlice = createSlice({
   name: 'app',
   initialState : {
-    selectedapp:null,
-    sendMessageIsOPen : false,
+    user:null,
+    selectedImage : null,
   },
   reducers: {
-    selectapp : ( state , action )=>{
-       state.selectedapp = action.payload
+    login : ( state , action )=>{
+       state.user = action.payload
     },
-    openSendMessage: state => {
-      state.sendMessageIsOPen = true;
+    logout: state => {
+      state.user = null;
     },
-    closeSendMessage: state => {
-      state.sendMessageIsOPen = false;
+    selectImage:( state , action ) => {
+      state.selectedImage = action.payload;
     },
+    resetImage : state => {
+      state.selectedImage = null
+    }
   },
 });
 
-export const { openSendMessage , closeSendMessage , selectapp} = appSlice.actions;
-export const selectOpenapp = (state) => state.app.selectedapp;
-export const selectSendMessageIsOPen = (state) => state.app.sendMessageIsOPen;
+export const { login , logout, resetImage , selectImage } = appSlice.actions;
+export const selectUser = (state) => state.app.selectedapp;
+export const selectSelectedImage = (state) => state.app.selectedImage;
 
 
 export default appSlice.reducer;
