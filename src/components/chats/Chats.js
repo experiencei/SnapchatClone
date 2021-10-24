@@ -1,9 +1,15 @@
 import { Avatar } from '@material-ui/core';
 import { ChatBubble, Search } from '@material-ui/icons';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Chats.css";
 
 function Chats() {
+   const [posts , setPosts] = useState([]);
+
+   useEffect(()=> {
+
+   } , [])
+
     return (
         <div className="chats">
         <div className="chats__header">
@@ -23,7 +29,7 @@ function Chats() {
             />
         </div>
               <div className="chats__posts">
-                  
+
               </div>
         </div>
     )
