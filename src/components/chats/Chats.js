@@ -1,13 +1,16 @@
 import { Avatar } from '@material-ui/core';
 import { ChatBubble, Search } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
+import { db } from '../firebase/firebase';
 import "./Chats.css";
 
 function Chats() {
    const [posts , setPosts] = useState([]);
 
    useEffect(()=> {
-
+       db.collection("posts").orderBy('timestamp' , "desc").onSnapshot( snapshot =>  setPosts(snapshot.docs.map( doc => ({
+           
+       }))) )
    } , [])
 
     return (
