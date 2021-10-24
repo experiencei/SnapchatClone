@@ -9,7 +9,7 @@ function Preview() {
     return (
         <div className="Preview"> 
           <h2>what good</h2>
-             <img src="cameraImage"
+             <img src={cameraImage}
              alt="image"
              />
         </div>
