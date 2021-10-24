@@ -6,6 +6,7 @@ import ReactTimeago from "react-timeago";
 import { useDispatch } from 'react-redux';
 import { selectImage } from '../../features/appSlice';
 import { useHistory } from 'react-router';
+import { db } from '../firebase/firebase';
 
 function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
     const dispatch = useDispatch();
