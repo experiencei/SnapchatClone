@@ -29,4 +29,11 @@
     background-color: tranparent;
     border: none;
     font-size: 12px;
+    flex: 1;
+    color:white;
+}
+
+.chats__search > input::placeholder{
+    color:white;
+    opacity: 1;
 }
