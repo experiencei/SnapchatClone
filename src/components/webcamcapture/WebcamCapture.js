@@ -10,7 +10,11 @@ const videoConstraints = {
 
 
 function WebcamCapture() {
-     const webcamRef = useRef(null)
+     const webcamRef = useRef(null);
+
+     const capture = useCallback(() => {
+
+     } , [webcamRef])
 
     return (
         <div className="webcamCapture">
@@ -20,6 +24,12 @@ function WebcamCapture() {
               ref={webcamRef}
               screenshotFormat="image/jpeg"
               width={videoConstraints.width}
+              videoConstraints={videoConstraints}
+                />
+
+                <RadioButtonUnchecked
+                    className="webcamCapture"
+                     onClick={capture}
                 />
         </div>
     )
