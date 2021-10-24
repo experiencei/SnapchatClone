@@ -1,4 +1,4 @@
-import { Close } from '@material-ui/icons';
+import { AttachFile, Close, Crop, MusicNote, Note, TextFields, Timer } from '@material-ui/icons';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -24,6 +24,15 @@ function Preview() {
     return (
         <div className="Preview"> 
             <Close  onClick={c}  className="preview__close"/>
+            <div className="preview__toolbarRight">
+                <TextFields/>
+                <Create/>
+                <Note/>
+                <MusicNote/>
+                <AttachFile/>
+                <Crop/>
+                <Timer/>
+            </div>
              <img src={cameraImage}
              alt="image"
              />
