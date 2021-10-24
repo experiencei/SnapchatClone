@@ -1,6 +1,7 @@
 import { RadioButtonUnchecked } from '@material-ui/icons';
 import React, { useCallback, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import Webcam from 'react-webcam'
 import { setCameraImage } from '../../features/cameraSlice';
 
@@ -14,7 +15,7 @@ const videoConstraints = {
 
 function WebcamCapture() {
      const webcamRef = useRef(null);
-    //  const [image , setImage] = useState(null);
+     const history = useHistory();
      const dispatch = useDispatch();
 
      const capture = useCallback(() => {
