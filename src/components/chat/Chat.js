@@ -6,7 +6,7 @@ import "./Chat.css";
 function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
     return (
         <div className="chat">
-            <Avatar src={profilePic}/>
+            <Avatar className="chat__avatar" src={profilePic}/>
 
             <div className="chat__info">
                 <h4>{username}</h4>
