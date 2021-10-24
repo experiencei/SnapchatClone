@@ -31,6 +31,7 @@
     font-size: 12px;
     flex: 1;
     color:white;
+    background-color: #059ee0;
 }
 
 .chats__search > input::placeholder{
