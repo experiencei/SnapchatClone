@@ -6,6 +6,7 @@ import { resetCameraImage, selectcameraImage} from '../../features/cameraSlice';
 import "./Preview.css";
 import { v4 as uuid} from "uuid";
 import { db, storage } from '../firebase/firebase';
+import firebase from 'firebase/compat/app';
 
 function Preview() {
 
@@ -37,7 +38,10 @@ function Preview() {
                     imageUrl : url,
                     username:"EXperience iq",
                     read: false,
-                })
+
+                    timestamp : firebase.firestore.FieldValue.serverTimestamp(),
+                });
+                history.replace("/chats");
             })
          });
     }
