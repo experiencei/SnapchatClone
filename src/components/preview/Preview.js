@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { resetCameraImage, selectcameraImage} from '../../features/cameraSlice';
 import "./Preview.css";
+import { v4 as uuid} from "uuid";
+import { storage } from '../firebase/firebase';
 
 function Preview() {
 
@@ -19,6 +21,16 @@ function Preview() {
 
     const closePreview = () => {
             dispatch(resetCameraImage());
+    }
+
+    const sendPost = () => {
+         const id = uuid();
+         const uploadTask = storage.ref(`posts/${id}`).putString(cameraImage , "data_url");
+
+
+         uploadTask.on("state_changed" , null , (error) => {
+             console.log(error);
+         }, () => {});
     }
 
     return (
@@ -37,7 +49,7 @@ function Preview() {
              <img src={cameraImage}
              alt="imageI"
              />
-             <div className="preview__footer">
+             <div onClick={sendPost} className="preview__footer">
                  <h2>Send Now</h2>
                  <Send  fontSize="small" className="preview__sendIcon"/>
              </div>
