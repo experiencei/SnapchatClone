@@ -1,14 +1,16 @@
 import { Close } from '@material-ui/icons';
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { selectcameraImage} from '../../features/cameraSlice';
+import { resetCameraImage, selectcameraImage} from '../../features/cameraSlice';
 import "./Preview.css";
 
 function Preview() {
 
   const history = useHistory()
   const cameraImage = useSelector(selectcameraImage);
+  const dispatch = useDispatch();
+
     useEffect(() => {
       if (!cameraImage){
             history.replace("/")
@@ -16,7 +18,8 @@ function Preview() {
     }, [cameraImage , history]);
 
     const cameraImage = () => {
-        
+            dispatch(resetCameraImage());
+            history.replace("/")
     }
 
     return (
