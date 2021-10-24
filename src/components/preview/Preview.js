@@ -19,7 +19,6 @@ function Preview() {
 
     const cameraImage = () => {
             dispatch(resetCameraImage());
-            history.replace("/")
     }
 
     return (
