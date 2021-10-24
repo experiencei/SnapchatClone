@@ -5,6 +5,7 @@ import { BrowserRouter as Router , Switch , Link , Route } from 'react-router-do
 import WebcamCapture from './components/webcamcapture/WebcamCapture';
 import Preview from './components/preview/Preview';
 import Chats from './components/chats/Chats';
+import ChatView from './components/chatview/ChatView';
 
 function App() {
   return (
