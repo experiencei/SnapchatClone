@@ -5,9 +5,12 @@ import "./Chat.css";
 import ReactTimeago from "react-timeago";
 import { useDispatch } from 'react-redux';
 import { selectImage } from '../../features/appSlice';
+import { useHistory } from 'react-router';
 
 function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
     const dispatch = useDispatch();
+    const history = useHistory();
+
 
     const open = () => {
         if(!read){
@@ -15,6 +18,8 @@ function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
             db.collection("posts").doc(id).set({
                 read : true,
             } , {merge : true});
+
+            history.push("/chats/view")
         }
     }
 
