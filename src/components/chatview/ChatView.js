@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { selectSelectedImage } from '../../features/appSlice';
 import "./ChatView.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer"
@@ -14,7 +14,6 @@ function ChatView() {
        if(!selectedImage) {
            exit();
        }
-      
    }, [selectedImage])
 
    const exit = () => {
@@ -28,8 +27,8 @@ function ChatView() {
                 onClick={exit}
                 alt="image3"
             />
-
-            <CountdownCircleTimer
+           <div className="chatView__timer">
+           <CountdownCircleTimer
                isPlaying
                duration={10}
                strokeWidth={6}
@@ -46,6 +45,8 @@ function ChatView() {
                       }
                    }}
             </CountdownCircleTimer>
+           </div>
+            
         </div>
     )
 }

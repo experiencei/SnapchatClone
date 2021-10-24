@@ -1,7 +1,7 @@
 import React from 'react';
 import { appSlice } from './features/appSlice';
 import './App.css';
-import { BrowserRouter as Router , Switch , Link , Route } from 'react-router-dom';
+import { BrowserRouter as Router , Switch , Route } from 'react-router-dom';
 import WebcamCapture from './components/webcamcapture/WebcamCapture';
 import Preview from './components/preview/Preview';
 import Chats from './components/chats/Chats';
