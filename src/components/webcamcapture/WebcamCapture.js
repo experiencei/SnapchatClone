@@ -14,12 +14,12 @@ const videoConstraints = {
 
 function WebcamCapture() {
      const webcamRef = useRef(null);
-     const [image , setImage] = useState(null);
+    //  const [image , setImage] = useState(null);
      const dispatch = useDispatch();
 
      const capture = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
-        dispatch(setCameraImage)
+        dispatch(setCameraImage(imageSrc))
         //    setImage(imageSrc)
      } , [webcamRef])
 
