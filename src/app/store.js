@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import mailReducer  from '../features/mailSlice';
+import mailReducer  from '../features/appSlice';
 import userReducer from '../features/userSlice'
 
 export const store = configureStore({
