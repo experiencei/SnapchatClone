@@ -14,17 +14,17 @@ function App() {
       <Router>
           <div className="app__body">
          <Switch>
-       <Route  exact path="/">
-           <WebcamCapture />
+         <Route path="/chats/view">
+           <ChatView />
        </Route>
        <Route  path="/chats">
            <Chats />
        </Route>
-       <Route   path="/preview">
+       <Route path="/preview">
            <Preview />
        </Route>
-       <Route exact path="/chats/view">
-           <ChatView />
+       <Route  exact path="/">
+           <WebcamCapture />
        </Route>
        </Switch>
        </div>
