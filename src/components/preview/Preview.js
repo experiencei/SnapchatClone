@@ -1,3 +1,4 @@
+import { Close } from '@material-ui/icons';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -12,11 +13,15 @@ function Preview() {
       if (!cameraImage){
             history.replace("/")
       }
-    }, [cameraImage , history])
+    }, [cameraImage , history]);
+
+    const cameraImage = () => {
+        
+    }
 
     return (
         <div className="Preview"> 
-          <h2>what good</h2>
+            <Close  onClick={c}  className="preview__close"/>
              <img src={cameraImage}
              alt="image"
              />
