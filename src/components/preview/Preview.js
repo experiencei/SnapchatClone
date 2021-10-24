@@ -1,4 +1,4 @@
-import { AttachFile, Close, Crop, MusicNote, Note, TextFields, Timer } from '@material-ui/icons';
+import { AttachFile, Close, Crop, MusicNote, Note, Send, TextFields, Timer } from '@material-ui/icons';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -36,6 +36,10 @@ function Preview() {
              <img src={cameraImage}
              alt="image"
              />
+             <div className="preview__footer">
+                 <h2>Send Now</h2>
+                 <Send  fontSize="small" className="preview__sendIcon"/>
+             </div>
         </div>
     )
 }
