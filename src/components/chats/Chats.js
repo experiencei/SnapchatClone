@@ -22,7 +22,9 @@ function Chats() {
                 className="chats__chatIcon"
             />
         </div>
-            
+              <div className="chats__posts">
+                  
+              </div>
         </div>
     )
 }
