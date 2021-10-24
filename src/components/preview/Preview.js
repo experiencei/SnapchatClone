@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import { resetCameraImage, selectcameraImage} from '../../features/cameraSlice';
 import "./Preview.css";
 import { v4 as uuid} from "uuid";
-import { storage } from '../firebase/firebase';
+import { db, storage } from '../firebase/firebase';
 
 function Preview() {
 
@@ -30,7 +30,16 @@ function Preview() {
 
          uploadTask.on("state_changed" , null , (error) => {
              console.log(error);
-         }, () => {});
+         }, () => {
+
+            storage.ref("posts").child(id).getDownloadURL().then((url) => {
+                db.collection("posts").add({
+                    imageUrl : url,
+                    username:"EXperience iq",
+                    read: false,
+                })
+            })
+         });
     }
 
     return (
