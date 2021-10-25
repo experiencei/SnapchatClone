@@ -33,8 +33,15 @@ function App() {
       
       <Router>
       {!user ? (
+        
         <Login/>
       ) : (
+        <>
+        <img
+          className="app__logo"
+          src="https://lakeridgenewsonline.com/wp-content/uploads/2020/04/snapchat.jpg"
+          alt="snapchat"
+        />
         <div className="app__body">
          <Switch>
          <Route path="/chats/view">
@@ -51,6 +58,7 @@ function App() {
        </Route>
        </Switch>
        </div>
+       </>
       ) }
           
    

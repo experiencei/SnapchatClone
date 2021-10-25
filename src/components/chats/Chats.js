@@ -2,7 +2,7 @@ import { Avatar } from '@material-ui/core';
 import { ChatBubble, RadioButtonUnchecked, Search } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { selectUser } from '../../features/appSlice';
 import { resetCameraImage } from '../../features/cameraSlice';
 import Chat from '../chat/Chat';
