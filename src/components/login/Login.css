@@ -1,0 +1,8 @@
+.login{
+    background-color: #feff00;
+}
+
+.login__container > img {
+    height: 300px;
+    object-fit: contain;
+}
