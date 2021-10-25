@@ -6,13 +6,21 @@ import WebcamCapture from './components/webcamcapture/WebcamCapture';
 import Preview from './components/preview/Preview';
 import Chats from './components/chats/Chats';
 import ChatView from './components/chatview/ChatView';
+import { selectUser } from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
   return (
     <div className="app">
       
       <Router>
-          <div className="app__body">
+      {!user ? (
+        <Login/>
+      ) : (
+        <div className="app__body">
          <Switch>
          <Route path="/chats/view">
            <ChatView />
@@ -28,6 +36,8 @@ function App() {
        </Route>
        </Switch>
        </div>
+      ) }
+          
    
    </Router> 
   </div>
