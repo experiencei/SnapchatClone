@@ -30,7 +30,7 @@ function Login() {
                     alt="logo"
                 />
 
-                <Button  variant="outline"  onClick={signIn}> Sign in</Button>
+                <Button  variant="outlined"  onClick={signIn}> Sign in</Button>
             </div>
         </div>
     )
