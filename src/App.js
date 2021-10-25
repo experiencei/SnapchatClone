@@ -43,7 +43,8 @@ function App() {
           alt="snapchat"
         />
         <div className="app__body">
-         <Switch>
+        <div className="app__bodyBackground">
+        <Switch>
          <Route path="/chats/view">
            <ChatView />
        </Route>
@@ -57,6 +58,7 @@ function App() {
            <WebcamCapture />
        </Route>
        </Switch>
+        </div>
        </div>
        </>
       ) }

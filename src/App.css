@@ -11,3 +11,8 @@
     height: 100px;
     object-fit: contain;
 }
+
+.app__bodyBackground{
+    background-color: white;
+    height: 400px;
+}
