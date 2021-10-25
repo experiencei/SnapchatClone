@@ -16,11 +16,21 @@ function Chats() {
    const history = useHistory();
 
 
+   useEffect(() => {
+                   // note mutable flag
+    someAsyncOperation().then(data => {
+      if (isMounted) setState(data);    // add conditional check
+    })
+    return () => { isMounted = false }; // cleanup toggles value, if unmounted
+  }, []);      
+
    useEffect(()=> {
-       db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(snapshot => setPosts(snapshot.docs.map( doc => ({
-           id: doc.id,
-           data : doc.data(),
-       }))))
+       let isMounted = true;
+       db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(snapshot =>  if (isMounted) { setPosts(snapshot.docs.map( doc => ({
+        id: doc.id,
+        data : doc.data(),
+    })))}
+       )
    } , [])
 
 
