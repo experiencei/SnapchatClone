@@ -1,18 +1,32 @@
-import React from 'react';
-import { appSlice } from './features/appSlice';
+import React, { useEffect } from 'react';
+import {  login, logout, selectUser } from './features/appSlice';
 import './App.css';
 import { BrowserRouter as Router , Switch , Route } from 'react-router-dom';
 import WebcamCapture from './components/webcamcapture/WebcamCapture';
 import Preview from './components/preview/Preview';
 import Chats from './components/chats/Chats';
 import ChatView from './components/chatview/ChatView';
-import { selectUser } from './features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Login from './components/login/Login';
+import { auth } from './components/firebase/firebase';
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged(( authUser) => {
+        if (authUser) {
+            dispatch(login({
+              username : authUser.displayName,
+              profilePic : authUser.photoURL,
+              id : authUser.uid,
+            }))
+        } else {
+          dispatch(logout())
+        }
+    })
+  }, [])
 
   return (
     <div className="app">
