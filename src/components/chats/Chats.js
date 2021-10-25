@@ -16,24 +16,38 @@ function Chats() {
    const history = useHistory();
 
 
-   useEffect(() => {
-                   // note mutable flag
-    someAsyncOperation().then(data => {
-      if (isMounted) setState(data);    // add conditional check
-    })
-    return () => { isMounted = false }; // cleanup toggles value, if unmounted
-  }, []);      
+//    useEffect(() => {
+//     let isMounted = true;        // note mutable flag
+//     someAsyncOperation().then(data => {
+//       if (isMounted) setState(data);    // add conditional check
+//     })
+//     return () => { isMounted = false }; // cleanup toggles value, if unmounted
+//   }, []);      
 
-   useEffect(()=> {
-       let isMounted = true;
-       db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(snapshot =>  if (isMounted) { setPosts(snapshot.docs.map( doc => ({
-        id: doc.id,
-        data : doc.data(),
-    })))}
-       )
-   } , [])
+//    useEffect(()=> {
+//        let isMounted = true;
+//        db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(snapshot =>  setPosts(snapshot.docs.map( doc => ({
+//            id: doc.id,
+//            data : doc.data(),
+//        })))
+//        )
+//    } , [])
 
-
+  useEffect(() => {
+    let isMounted = true;
+    db.collection("posts").orderBy("timestamp" , "desc").onSnapshot(
+        snapshot => {
+            if (isMounted) setPosts(snapshot.docs.map( doc => ({
+                id: doc.id,
+                data : doc.data(),
+            })))    
+          }
+    )
+      return () => {
+        isMounted = false
+      }
+  }, []);
+  
    const takeSnap = () => {
      dispatch(resetCameraImage())
      history.push("/")
