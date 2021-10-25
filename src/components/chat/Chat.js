@@ -5,7 +5,7 @@ import "./Chat.css";
 import ReactTimeago from "react-timeago";
 import { useDispatch } from 'react-redux';
 import { selectImage } from '../../features/appSlice';
-import { useHistory } from 'react-router-dom';
+import { useHistory , Redirect } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 
 function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
@@ -18,8 +18,8 @@ function Chat({id, profilePic , username , timestamp , imageUrl , read}) {
             db.collection("posts").doc(id).set({
                 read : true,
             } , {merge : true});
-
-            history.push("/chats/view")
+            <Redirect  to="/chats/view" />
+            // history.push("")
         }
     }
 

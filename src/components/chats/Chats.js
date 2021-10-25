@@ -14,15 +14,7 @@ function Chats() {
    const user = useSelector(selectUser);
    const dispatch = useDispatch();
    const history = useHistory();
-
-
-//    useEffect(() => {
-//     let isMounted = true;        // note mutable flag
-//     someAsyncOperation().then(data => {
-//       if (isMounted) setState(data);    // add conditional check
-//     })
-//     return () => { isMounted = false }; // cleanup toggles value, if unmounted
-//   }, []);      
+      
 
 //    useEffect(()=> {
 //        let isMounted = true;
@@ -47,7 +39,7 @@ function Chats() {
         isMounted = false
       }
   }, []);
-  
+
    const takeSnap = () => {
      dispatch(resetCameraImage())
      history.push("/")
