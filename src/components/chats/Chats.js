@@ -13,6 +13,8 @@ function Chats() {
    const user = useSelector(selectUser);
    const dispatch = useDispatch();
    const history = useHistory();
+
+   
    useEffect(()=> {
        db.collection("posts").orderBy('timestamp' , "desc").onSnapshot( snapshot =>  setPosts(snapshot.docs.map( doc => ({
            id : doc.id,
