@@ -1,15 +1,16 @@
 import { AttachFile, Close, Create, Crop, MusicNote, Note, Send, TextFields, Timer } from '@material-ui/icons';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { resetCameraImage, selectcameraImage} from '../../features/cameraSlice';
 import "./Preview.css";
 import { v4 as uuid} from "uuid";
 import { db, storage } from '../firebase/firebase';
 import firebase from 'firebase/compat/app';
+import { selectUser } from '../../features/appSlice';
 
 function Preview() {
-
+  const user = useSelector(selectUser);
   const history = useHistory()
   const cameraImage = useSelector(selectcameraImage);
   const dispatch = useDispatch();
@@ -36,9 +37,9 @@ function Preview() {
             storage.ref("posts").child(id).getDownloadURL().then((url) => {
                 db.collection("posts").add({
                     imageUrl : url,
-                    username:"EXperience iq",
+                    username:"Experience iq",
                     read: false,
-
+                    profilePic : user.profilePic,
                     timestamp : firebase.firestore.FieldValue.serverTimestamp(),
                 });
                 history.replace("/chats");

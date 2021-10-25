@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { selectUser } from '../../features/appSlice';
+import { resetCameraImage } from '../../features/cameraSlice';
 import Chat from '../chat/Chat';
 import { db , auth} from '../firebase/firebase';
 import "./Chats.css";
@@ -24,6 +25,7 @@ function Chats() {
 
 
    const takeSnap = () => {
+     dispatch(resetCameraImage())
      history.push("/")
    }
     return (

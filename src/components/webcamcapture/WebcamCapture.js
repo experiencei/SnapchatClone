@@ -1,7 +1,7 @@
 import { RadioButtonUnchecked } from '@material-ui/icons';
 import React, { useCallback, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import "./WebcamCapture.css"
 import { setCameraImage } from '../../features/cameraSlice';
