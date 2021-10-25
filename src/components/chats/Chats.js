@@ -14,7 +14,7 @@ function Chats() {
    const dispatch = useDispatch();
    const history = useHistory();
 
-   
+
    useEffect(()=> {
        db.collection("posts").orderBy('timestamp' , "desc").onSnapshot( snapshot =>  setPosts(snapshot.docs.map( doc => ({
            id : doc.id,
@@ -36,7 +36,7 @@ function Chats() {
             />
 
             <div className="chats__search">
-                <Search/>
+                <Search className="chats__searchIcon"/>
                 <input
                     placeholder="Friends"
                     type="text"
